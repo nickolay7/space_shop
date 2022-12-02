@@ -1,14 +1,29 @@
-import styles from './ProductItemPage.module.scss';
-import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {useProduct} from "./lib/useProduct";
 
-interface ProductItemPageProps { }
-
-export const ProductItemPage = ({ }: ProductItemPageProps) => {
-  const { productAlias } = useParams();
+export const ProductItemPage = () => {
+  const [item] = useProduct();
 
   return (
-    <div className={styles.productItemPage}>
-      ProductItemPage Component {productAlias}
-    </div>
-  );
+    <>
+      {
+        item ? (
+          <div className='flex flex-col items-center'>
+            <img src={item.img} alt={item.title} style={{ maxWidth: '420px' }} />
+            <h1 className='ui-title-1 mb-4'>{item.title}</h1>
+            <span>{item.price}</span>
+
+            <div className='flex mt-2'>
+              <Link className='ui-button isLink' to='/'>
+                Back home
+              </Link>
+              <div className='ui-button isPrimary'>Add to cart</div>
+            </div>
+          </div>
+        ) : (
+          'loading...'
+        )
+      }
+    </>
+  )
 };

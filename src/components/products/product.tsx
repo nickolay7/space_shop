@@ -17,7 +17,7 @@ export const ProductItem = ({ product: {alias, title, price, img} }: ProductItem
         </div>
         <div className='flex items-end justify-between mx-3'>
           <p>{price}</p>
-          <Link to={`/${alias}`}><button className='ui-button isPrimary'>See more</button></Link>
+          <Link to={`/products/${alias}`}><button className='ui-button isPrimary'>See more</button></Link>
         </div>
       </div>
     </div>

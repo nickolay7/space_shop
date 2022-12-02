@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Routes} from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 
 import {Header} from 'components/Header'
 import {Footer} from 'components/Footer'
@@ -19,9 +19,11 @@ function App() {
       <div className='ui-content-wrapper'>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/:productAlias" element={<ProductItemPage />}/>
+          <Route path="/products" element={<Navigate to='/' />}/>
+          <Route path="/products/:productAlias" element={<ProductItemPage />} />
           <Route path="/about" element={<About/>}/>
-          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path="/404" element={<NotFoundPage/>}/>
+          <Route path="*" element={<Navigate to='/404' />}/>
         </Routes>
       </div>
       <Footer/>
