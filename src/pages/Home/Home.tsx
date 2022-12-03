@@ -1,5 +1,5 @@
 import {Container} from "layout/Container";
-import {ProductsList} from "components/products";
+import {ProductsList} from "components/Products";
 
 export const Home = () => {
 
