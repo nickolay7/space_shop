@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import {Container} from "layout/Container";
 import { ReactComponent as LogoIcon } from "assets/icons/logo.svg";
-import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 
 import "./Header.scss";
 import { NavLink } from 'react-router-dom'
+import {CartButton} from "../CartButton";
 
 interface HeaderProps {
   className?: string
@@ -12,7 +12,7 @@ interface HeaderProps {
 
 export const Header = ({ className = '', ...attrs }: HeaderProps) => {
   const classes = classNames('Header', className);
-  const menuListStyle = classNames('MenuList', 'flex')
+  const menuListStyle = classNames('MenuList', 'flex pb-3 pt-3')
 
   const menuLinks = [
     {
@@ -23,7 +23,7 @@ export const Header = ({ className = '', ...attrs }: HeaderProps) => {
       title: 'About',
       alias: '/about'
     },{
-      title: <CartIcon />,
+      title: <CartButton />,
       alias: '/cart'
     }
   ]

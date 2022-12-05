@@ -8,7 +8,7 @@ import 'scss/main.scss'
 
 const About = () => <h2>About</h2>
 
-function App() {
+export const App = () => {
   return (
     <div className='ui-wrapper'>
       <Header className=''/>
@@ -27,5 +27,3 @@ function App() {
     </div>
   )
 }
-
-export default App
