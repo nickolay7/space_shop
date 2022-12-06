@@ -5,3 +5,10 @@ export interface Product {
   price: string,
   img: string,
 }
+
+export interface Good {
+  product: Product;
+  amount: number;
+}
+
+export type Cart = Record<string, Good>;

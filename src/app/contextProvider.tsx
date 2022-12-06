@@ -1,9 +1,9 @@
-import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useMemo, useState} from "react";
-import {Product} from "types";
+import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useMemo, useState} from "react";
+import {Cart} from "types";
 
 interface IContext {
-  cart: Product[];
-  setCart: Dispatch<SetStateAction<Product[]>>;
+  cart: Cart;
+  setCart: Dispatch<SetStateAction<Cart>>;
 }
 
 interface IProviderProps {
@@ -12,10 +12,8 @@ interface IProviderProps {
 
 const Context = createContext<IContext>({} as IContext);
 
-export const AppProvider = ({ children }: IProviderProps) => {
-  const [cart, setCart] = useState<Product[] | []>([]);
-
-  useEffect(() => console.log(cart), [cart])
+export const AppProvider = ({children}: IProviderProps) => {
+  const [cart, setCart] = useState<Cart | {}>({});
 
   const value = useMemo(() => ({cart, setCart}), [cart, setCart]);
 

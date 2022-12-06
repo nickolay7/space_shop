@@ -3,6 +3,7 @@ import {useGetProduct} from "./lib/useGetProduct";
 import {useState} from "react";
 import classNames from "classnames";
 import {useAppContext} from "app";
+import {addGood} from "./lib/addGood";
 
 export const ProductItemPage = () => {
   const [item] = useGetProduct();
@@ -10,14 +11,13 @@ export const ProductItemPage = () => {
 
 
   const [isLoading, setLoading] = useState(false);
-  // const [isError, setError] = useState(false);
   const [isAddedSucceed, setAddedSucceed] = useState(false);
 
   const onAddToCart = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      item && setCart([...cart, item])
+      item && addGood(cart, item, setCart);
       setAddedSucceed(true);
       setTimeout(() => setAddedSucceed(false), 1000);
     }, 1000);

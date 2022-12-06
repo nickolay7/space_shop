@@ -1,4 +1,4 @@
-export default [
+const seed = [
   {
     id: 1,
     alias: 'stormtroper-helmet',
@@ -26,5 +26,7 @@ export default [
     title: 'IMPERIAL ARMY’S DEATH STAR',
     price: '$1.299',
     img: require('../assets/img/products/product-4.png'),
-  },
-]
+  }
+];
+
+export default seed;
